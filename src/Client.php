@@ -5,6 +5,7 @@
  */
 namespace Cohere;
 
+use Cohere\Endpoints\DetectLanguage;
 use Cohere\Endpoints\Embed;
 use Cohere\Endpoints\Generate;
 use GuzzleHttp\Exception\ClientException;
@@ -72,5 +73,14 @@ class Client implements ClientInterface
     public function embed(...$args): Response
     {
         return (new Embed($this))(...$args);
+    }
+
+    /**
+     * @param mixed ...$args
+     * @return Response
+     */
+    public function detectLanguage(...$args): Response
+    {
+        return (new DetectLanguage($this))(...$args);
     }
 }
